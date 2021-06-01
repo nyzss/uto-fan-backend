@@ -15,6 +15,15 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://amatsuka.netlify.app/");
+  res.header("Access-Control-Allow-Header", "*");
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "POST, GET");
+    return res.status(200).json({});
+  }
+});
+
 mongoose.connect(
   process.env.MONGO_DB_URI,
   {
