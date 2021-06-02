@@ -24,6 +24,8 @@ app.use((req, res, next) => {
   }
 });
 
+console.log("Database_URI", process.env.MONGO_DB_URI);
+app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
 mongoose.connect(
   process.env.MONGO_DB_URI,
   {
@@ -33,7 +35,6 @@ mongoose.connect(
   (err) => {
     if (err) return console.error(err);
     console.log("Connected to MongoDB");
-    app.listen(PORT, () => console.log(`Server started on port: ${PORT}`));
   }
 );
 
