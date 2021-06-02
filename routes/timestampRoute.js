@@ -17,10 +17,13 @@ router.get("/:videoId", async (req, res) => {
     const videoId = req.params.videoId;
 
     // fetching single video timestamp data and sorting by date created
-    const singleTimestamp = await Timestamp.find({ videoId: videoId }).sort({
-      createdAt: -1,
-    });
 
+    const singleTimestamp = await Timestamp.find({ videoId: videoId }).sort({
+      _id: -1,
+    });
+    // const singleTimestamp = await Timestamp.find({ videoId: videoId }).sort({
+    //   createdAt: -1,
+    // });
     res.json(singleTimestamp);
   } catch (err) {
     console.error(err);
