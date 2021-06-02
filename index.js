@@ -9,12 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://amatsuka.netlify.app/",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://amatsuka.netlify.app/",
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   })
+// );
+
+app.use(cors());
 
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "https://amatsuka.netlify.app/");
